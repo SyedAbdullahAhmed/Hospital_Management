@@ -2,11 +2,11 @@ from fastapi import HTTPException
 from pymongo import MongoClient
 import json
 from bson import ObjectId
+from main import uri
 
 
 
 def load_admins():
-    uri = "mongodb+srv://ab:ab123@cluster0.1yqzrrw.mongodb.net/hospital-management?retryWrites=true&w=majority&appName=Cluster0"
     client = MongoClient(uri)
     database = client.get_database("hospital-management")
     __admins = database.get_collection("admins")
